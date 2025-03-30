@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Webcam ASCII Converter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Live Webcam ASCII Converter</h1>
+        </header>
+        
+        <main>
+            <div class="controls">
+                <div class="control-group">
+                    <button id="startButton" class="btn">Start Webcam</button>
+                    <button id="stopButton" class="btn" disabled>Stop Webcam</button>
+                </div>
+                
+                <div class="control-group">
+                    <label for="characterSet">Character Set:</label>
+                    <select id="characterSet" class="select">
+                        <option value="standard">Standard (@#S%?*+;:,.)</option>
+                        <option value="blocks">Blocks (█▓▒░ )</option>
+                        <option value="simple">Simple (#.)</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label for="resolution">Resolution:</label>
+                    <input type="range" id="resolution" min="20" max="200" value="80" class="slider">
+                    <span id="resolutionValue">80 cols</span>
+                </div>
+                
+                <div class="control-group">
+                    <label for="invert">Invert Colors:</label>
+                    <input type="checkbox" id="invert" class="checkbox">
+                </div>
+            </div>
+            
+            <div class="display-area">
+                <div class="video-container">
+                    <video id="video" autoplay muted></video>
+                    <div class="video-label">Webcam Feed</div>
+                </div>
+                
+                <div class="ascii-container">
+                    <pre id="asciiOutput"></pre>
+                    <div class="ascii-label">ASCII Output</div>
+                </div>
+            </div>
+        </main>
+        
+        <div id="errorMessage" class="error-message"></div>
+        
+        <!-- Hidden canvas for processing -->
+        <canvas id="canvas" style="display: none;"></canvas>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
